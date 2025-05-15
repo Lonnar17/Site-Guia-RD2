@@ -1,0 +1,38 @@
+<script>
+  function openTab(tabId, button) {
+    const tabContents = document.querySelectorAll('.tab-content');
+    const tabButtons = document.querySelectorAll('.tab-button');
+
+    tabContents.forEach(content => content.classList.remove('active'));
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    button.classList.add('active');
+
+    // Scroll para o topo com animação suave
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-button');
+
+    tabButtons.forEach(button => {
+      // Extrai o tabId do texto do botão
+      const text = button.textContent.trim().toLowerCase();
+      let tabId = '';
+
+      if (text.includes('capítulo 1')) tabId = 'cap1';
+      else if (text.includes('capítulo 2')) tabId = 'cap2';
+      else if (text.includes('capítulo 3')) tabId = 'cap3';
+      else if (text.includes('capítulo 4')) tabId = 'cap4';
+      else if (text.includes('capítulo 5')) tabId = 'cap5';
+      else if (text.includes('capítulo 6')) tabId = 'cap6';
+      else if (text.includes('epílogo 1')) tabId = 'ep1';
+      else if (text.includes('epílogo 2')) tabId = 'ep2';
+
+      if (tabId) {
+        button.addEventListener('click', () => openTab(tabId, button));
+      }
+    });
+  });
+</script>
