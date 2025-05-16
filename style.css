@@ -232,6 +232,7 @@ h4 {
   .char-icon {
     height: 35px;
     top: 515px;
+    display: none;
   }
 
   .left-icon {
